@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     permissions:
-       contents: read
+      contents: read
     
-       steps:
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
         
