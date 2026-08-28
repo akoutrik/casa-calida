@@ -1,98 +1,151 @@
 <!DOCTYPE html>
-<html lang="nl" class="scroll-smooth">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Meer informatie over Casa Cálida, een luxe penthouse aan de Costa Blanca.">
-    <title>Over ons | Casa Cálida</title>
+    <meta name="description" content="Ontdek waarom Helene en Alex verliefd zijn geworden op de Costa Cálida.">
+    <title>Over Ons | Casa Calida</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-slate-50 text-slate-800">
-    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-            <a href="index.html" class="text-2xl font-bold tracking-tight text-amber-600">
-                Casa Cálida
-            </a>
+    <style>
+        :root {
+            --charcoal: #373f43;
+            --terracotta: #c96d4b;
+            --sand: #f7f5f0;
+            --ink: #4d5355;
+        }
 
-            <nav aria-label="Hoofdnavigatie" class="flex items-center gap-4 text-sm font-semibold">
-                <a href="index.html#over" class="hover:text-amber-600">Het penthouse</a>
-                <a href="index.html#tarieven" class="hover:text-amber-600">Tarieven</a>
-                <a href="over-ons.html" aria-current="page" class="text-amber-600">Over ons</a>
-                <a href="index.html#contact" class="rounded-lg bg-amber-600 px-4 py-2 text-white hover:bg-amber-700">
-                    Reserveren
-                </a>
+        body {
+            background: var(--sand);
+            color: var(--ink);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .site-sans {
+            font-family: "Trebuchet MS", Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-sans bg-[#373f43] text-white">
+        <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-5">
+            <a href="index.html" class="text-lg font-bold uppercase tracking-[0.18em]">
+                Casa Calida of Casa Bo y Puck
+            </a>
+            <nav aria-label="Hoofdnavigatie" class="flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.14em]">
+                <a href="index.html" class="transition hover:text-[#e4a17d]">Home</a>
+                <a href="over-ons.html" aria-current="page" class="text-[#e4a17d]">Over ons</a>
+                <a href="index.html#over" class="transition hover:text-[#e4a17d]">Penthouse</a>
+                <a href="index.html#contact" class="transition hover:text-[#e4a17d]">Contact</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="bg-slate-900 px-4 py-20 text-center text-white">
-            <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-amber-400">
-                Casa Cálida
-            </p>
-            <h1 class="text-4xl font-extrabold md:text-5xl">Over ons</h1>
-            <p class="mx-auto mt-5 max-w-2xl text-lg text-slate-300">
-                Een comfortabele plek aan de Costa Blanca waar gasten kunnen genieten
-                van ruimte, rust en de Spaanse zon.
+        <section class="border-b border-[#e5dfd5] bg-[#eee9e0] px-5 py-20 text-center md:py-28">
+            <p class="site-sans mb-4 text-xs font-bold uppercase tracking-[0.28em] text-[#c96d4b]">Casa Calida</p>
+            <h1 class="text-5xl leading-tight text-[#373f43] md:text-7xl">Over Ons</h1>
+            <p class="mx-auto mt-6 max-w-2xl text-xl italic leading-8 text-[#6a7071]">
+                Ontdek waarom we verliefd zijn geworden op de Costa Calida.
             </p>
         </section>
 
-        <section class="mx-auto max-w-3xl px-4 py-16">
-            <h2 class="text-3xl font-bold text-slate-900">Welkom bij Casa Cálida</h2>
-            <p class="mt-5 leading-8 text-slate-600">
-                Casa Cálida is een luxe penthouse in Pilar de la Horadada.
-                We willen onze gasten een ontspannen verblijf bieden met comfort,
-                privacy en alles wat nodig is voor een zorgeloze vakantie.
+        <article class="mx-auto max-w-4xl px-5 py-16 md:py-24">
+            <p class="text-xl leading-9 text-[#373f43]">
+                Welkom bij Casa Calida! Wij zijn Helene en Alex, de blije en trotse eigenaren
+                van dit penthouse, gevestigd in Pilar de la Horadada aan de
+                <a class="text-[#b85f42] underline decoration-[#d9a084] underline-offset-4" href="https://nl.wikipedia.org/wiki/Costa_C%C3%A1lida">Costa Calida</a>.
+                Bo en Puck zijn onze dochters. Onze droom en de bijbehorende zoektocht naar
+                een uitvalsbasis voor ontspanning, lekker eten en drinken en een fijn klimaat
+                heeft ons naar Spanje gebracht.
             </p>
-            <p class="mt-4 leading-8 text-slate-600">
-                Vanuit het penthouse ontdek je de stranden, restaurants en
-                bezienswaardigheden van de Costa Blanca.
-            </p>
-        </section>
 
-        <section class="bg-slate-100 px-4 py-16">
-            <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
-                <figure class="overflow-hidden rounded-xl bg-white shadow-sm">
+            <div class="my-14 grid gap-6 md:grid-cols-2">
+                <figure class="overflow-hidden bg-white shadow-sm">
                     <img
                         src="images/over-ons-alex-en-helene.webp"
-                        alt="Alex en Helene bij Casa Cálida"
+                        alt="Alex en Helene"
                         class="h-80 w-full object-cover"
                     >
-                    <figcaption class="p-5 text-center font-semibold text-slate-800">
-                        Alex en Helene
+                    <figcaption class="site-sans px-5 py-4 text-center text-sm uppercase tracking-[0.12em] text-[#6a7071]">
+                        Helene en Alex
                     </figcaption>
                 </figure>
-
-                <figure class="overflow-hidden rounded-xl bg-white shadow-sm">
+                <figure class="overflow-hidden bg-white shadow-sm">
                     <img
                         src="images/over-ons-san-perdo-salinas.webp"
-                        alt="San Pedro del Pinatar en de omgeving van Casa Cálida"
+                        alt="San Pedro del Pinatar en omgeving"
                         class="h-80 w-full object-cover"
                     >
-                    <figcaption class="p-5 text-center font-semibold text-slate-800">
-                        De omgeving van Casa Cálida
+                    <figcaption class="site-sans px-5 py-4 text-center text-sm uppercase tracking-[0.12em] text-[#6a7071]">
+                        De Costa Calida
                     </figcaption>
                 </figure>
             </div>
-        </section>
 
-        <section class="bg-white px-4 py-16 text-center">
-            <h2 class="text-3xl font-bold text-slate-900">Meer weten?</h2>
-            <p class="mx-auto mt-4 max-w-xl text-slate-600">
-                Bekijk de accommodatie of neem contact op voor informatie over
-                beschikbaarheid en reserveringen.
+            <div class="space-y-7 text-lg leading-9">
+                <p>
+                    En daar zijn we, met hulp van Coert, enthousiasme van Jose Marie en support
+                    van Daphne, op slag verliefd geworden op de Costa Calida. Waarom? Tja, leg dat
+                    maar eens uit.
+                </p>
+                <p>
+                    In Pilar de la Horadada, San Pedro del Pinatar en Lo Pagan proefden we de
+                    ontspannen, authentieke Spaanse sfeer en dat gaf ons een heel fijn en energiek
+                    gevoel. Waarom zou je dan nog verder zoeken?
+                </p>
+                <p>
+                    Aan een heerlijk glas wijn en een tapasplankje op een zwoele juniavond in
+                    Cartagena hebben we besloten om te gaan voor Casa Calida in Pilar de la Horadada.
+                    Stel je een gezellig dorpspleintje in Pilar voor, waar je een praatje in Duolingo
+                    Spaans maakt met de Spaanse mevrouw van de lokale supermarkt. De lokale gastrobar
+                    waar de eigenaar trots vertelt over al zijn mooie wijnen en ongevraagd een heerlijke
+                    jamón voor je neerzet.
+                </p>
+                <p>
+                    De langgerekte rustige stranden en de ruige kustlijn vormen een ander Spanje,
+                    dat wat het voor ons zo bijzonder en aantrekkelijk maakt. Geen massaal toerisme
+                    en overvolle stranden. Authentieke dorpjes, mooie steden, natuur en de Middellandse
+                    Zee met lange, lange stranden.
+                </p>
+                <p>
+                    Vanuit een fantastische uitvalsbasis waar je helemaal jezelf kunt zijn en veel
+                    privacy hebt. Dat vinden we nog elke keer bijzonder en we verlangen naar ons
+                    volgende bezoek.
+                </p>
+                <p>
+                    De enthousiaste reacties over ons avontuur in Spanje en onze Casa Calida hebben
+                    ons geïnspireerd om dit te willen delen met anderen. Het delen van een droom om
+                    samen te kunnen genieten van het heerlijke klimaat en de mooie regio Costa Calida
+                    van Spanje.
+                </p>
+                <p>
+                    Ons penthouse is echt geweldig en biedt alle comfort en luxe die je je kunt wensen.
+                    Door onze Casa Calida te huur aan te bieden, geven we ook jou de kans op een
+                    onvergetelijk verblijf in een ander Spanje, waar je even helemaal tot rust kan komen.
+                </p>
+                <p>
+                    We zijn nu al trots en gelukkig met alle mooie feedback die we ontvangen en kijken
+                    ernaar uit om ook jou binnenkort te verwelkomen in onze casa.
+                </p>
+            </div>
+        </article>
+
+        <section class="site-sans bg-[#373f43] px-5 py-16 text-center text-white">
+            <h2 class="text-3xl font-bold">Neem contact met ons op!</h2>
+            <p class="mx-auto mt-4 max-w-xl leading-7 text-[#d6d8d8]">
+                Heb je vragen of wil je meer informatie?
             </p>
             <a
                 href="index.html#contact"
-                class="mt-8 inline-block rounded-lg bg-amber-600 px-6 py-3 font-bold text-white hover:bg-amber-700"
+                class="mt-8 inline-block bg-[#c96d4b] px-7 py-3 text-sm font-bold uppercase tracking-[0.12em] transition hover:bg-[#b85f42]"
             >
-                Neem contact op
+                Contact
             </a>
         </section>
     </main>
 
-    <footer class="border-t border-slate-200 px-4 py-8 text-center text-sm text-slate-500">
-        &copy; 2026 Casa Cálida
+    <footer class="site-sans bg-[#2d3437] px-5 py-7 text-center text-xs uppercase tracking-[0.12em] text-[#c9cdcd]">
+        &copy; 2026 Casa Calida, Casa Bo y Puck
     </footer>
 </body>
 </html>
