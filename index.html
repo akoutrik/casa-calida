@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Maven+Pro:wght@500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
     <style>
         :root {
             --charcoal: #373f43;
@@ -37,7 +38,12 @@
             <nav aria-label="Hoofdnavigatie" class="flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.14em]">
                 <a href="index.html" class="text-[#e4a17d]">Home</a>
                 <a href="over-ons.html" class="transition hover:text-[#e4a17d]">Over ons</a>
-                <a href="#over" class="transition hover:text-[#e4a17d]">Penthouse</a>
+                <a href="penthouse.html" class="transition hover:text-[#e4a17d]">Penthouse</a>
+                <a href="pilar.html" class="transition hover:text-[#e4a17d]">Pilar</a>
+                <a href="galerij.html" class="transition hover:text-[#e4a17d]">Galerij</a>
+                <a href="omgeving.html" class="transition hover:text-[#e4a17d]">Omgeving</a>
+                <a href="onze-tips.html" class="transition hover:text-[#e4a17d]">Onze tips</a>
+                <a href="faq.html" class="transition hover:text-[#e4a17d]">FAQ</a>
                 <a href="contact.html" class="transition hover:text-[#e4a17d]">Contact</a>
             </nav>
         </div>
@@ -78,6 +84,19 @@
                     <h3 class="text-xl font-bold text-[#373f43]">Pilar de la Horadada</h3>
                     <p class="mt-3 leading-7">Een sfeervol dorp en de ideale uitvalsbasis voor je verblijf aan de kust.</p>
                 </article>
+            </div>
+
+            <div class="relative mt-12 overflow-hidden bg-[#373f43]" data-carousel aria-label="Foto's van Casa Calida">
+                <div class="relative aspect-[16/8] min-h-[240px]">
+                    <img src="images/over-ons-alex-en-helene.webp" alt="Alex en Helene bij Casa Calida" class="carousel-slide absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-500" data-slide>
+                    <img src="images/over-ons-san-perdo-salinas.webp" alt="San Pedro del Pinatar en omgeving" class="carousel-slide absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500" data-slide>
+                </div>
+                <button type="button" data-carousel-prev aria-label="Vorige foto" class="absolute left-4 top-1/2 -translate-y-1/2 bg-[#373f43]/85 px-4 py-3 text-xl text-white hover:bg-[#c96d4b]">&#8249;</button>
+                <button type="button" data-carousel-next aria-label="Volgende foto" class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#373f43]/85 px-4 py-3 text-xl text-white hover:bg-[#c96d4b]">&#8250;</button>
+                <div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2" role="tablist" aria-label="Kies een foto">
+                    <button type="button" data-carousel-dot="0" aria-label="Toon eerste foto" aria-selected="true" class="h-2.5 w-8 bg-[#e4a17d]"></button>
+                    <button type="button" data-carousel-dot="1" aria-label="Toon tweede foto" aria-selected="false" class="h-2.5 w-8 bg-white/60"></button>
+                </div>
             </div>
         </section>
 
