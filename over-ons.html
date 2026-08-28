@@ -13,7 +13,8 @@
     <style>
         :root {
             --charcoal: #373f43;
-            --terracotta: #c96d4b;
+            --blue: #3194d0;
+            --blue-dark: #2479a8;
             --sand: #f7f5f0;
             --ink: #4d5355;
         }
@@ -51,7 +52,7 @@
 
     <main>
         <section class="border-b border-[#e5dfd5] bg-[#eee9e0] px-5 py-20 text-center md:py-28">
-            <p class="site-sans mb-4 text-xs font-bold uppercase tracking-[0.28em] text-[#c96d4b]">Casa Calida</p>
+            <p class="site-sans mb-4 text-xs font-bold uppercase tracking-[0.28em] text-[#3194d0]">Casa Calida</p>
             <h1 class="text-5xl leading-tight text-[#373f43] md:text-7xl">Over Ons</h1>
             <p class="mx-auto mt-6 max-w-2xl text-xl italic leading-8 text-[#6a7071]">
                 Ontdek waarom we verliefd zijn geworden op de Costa Calida.
@@ -59,21 +60,14 @@
         </section>
 
         <article class="mx-auto max-w-4xl px-5 py-16 md:py-24">
-            <p class="text-xl leading-9 text-[#373f43]">
-                Welkom bij Casa Calida! Wij zijn Helene en Alex, de blije en trotse eigenaren
-                van dit penthouse, gevestigd in Pilar de la Horadada aan de
-                <a class="text-[#b85f42] underline decoration-[#d9a084] underline-offset-4" href="https://nl.wikipedia.org/wiki/Costa_C%C3%A1lida">Costa Calida</a>.
-                Bo en Puck zijn onze dochters. Onze droom en de bijbehorende zoektocht naar
-                een uitvalsbasis voor ontspanning, lekker eten en drinken en een fijn klimaat
-                heeft ons naar Spanje gebracht.
-            </p>
-
-            <div class="my-14 grid gap-6 md:grid-cols-2">
+            <div class="mb-14 grid gap-6 md:grid-cols-2">
                 <figure class="overflow-hidden bg-white shadow-sm">
                     <img
                         src="images/over-ons-alex-en-helene.webp"
                         alt="Alex en Helene"
                         class="h-80 w-full object-cover"
+                        loading="eager"
+                        decoding="async"
                     >
                     <figcaption class="site-sans px-5 py-4 text-center text-sm uppercase tracking-[0.12em] text-[#6a7071]">
                         Helene en Alex
@@ -84,12 +78,24 @@
                         src="images/over-ons-san-perdo-salinas.webp"
                         alt="San Pedro del Pinatar en omgeving"
                         class="h-80 w-full object-cover"
+                        loading="eager"
+                        decoding="async"
                     >
                     <figcaption class="site-sans px-5 py-4 text-center text-sm uppercase tracking-[0.12em] text-[#6a7071]">
                         De Costa Calida
                     </figcaption>
                 </figure>
             </div>
+
+            <h2 class="text-3xl font-bold text-[#373f43]">Welkom bij Casa Calida</h2>
+            <p class="text-xl leading-9 text-[#373f43]">
+                Welkom bij Casa Calida! Wij zijn Helene en Alex, de blije en trotse eigenaren
+                van dit penthouse, gevestigd in Pilar de la Horadada aan de
+                <a class="text-[#3194d0] underline decoration-[#3194d0] underline-offset-4" href="https://nl.wikipedia.org/wiki/Costa_C%C3%A1lida">Costa Calida</a>.
+                Bo en Puck zijn onze dochters. Onze droom en de bijbehorende zoektocht naar
+                een uitvalsbasis voor ontspanning, lekker eten en drinken en een fijn klimaat
+                heeft ons naar Spanje gebracht.
+            </p>
 
             <div class="space-y-7 text-lg leading-9">
                 <p>
@@ -139,17 +145,47 @@
             </div>
         </article>
 
-        <section class="site-sans bg-[#373f43] px-5 py-16 text-center text-white">
-            <h2 class="text-3xl font-bold">Neem contact met ons op!</h2>
+        <section class="site-sans bg-[#373f43] px-5 py-16 text-center text-white" aria-labelledby="review-title">
+            <h2 id="review-title" class="text-3xl font-bold">Deel je reactie</h2>
             <p class="mx-auto mt-4 max-w-xl leading-7 text-[#d6d8d8]">
-                Heb je vragen of wil je meer informatie?
+                Geef Casa Calida een beoordeling of laat een bericht achter.
             </p>
-            <a
-                href="contact.html"
-                class="mt-8 inline-block bg-[#c96d4b] px-7 py-3 text-sm font-bold uppercase tracking-[0.12em] transition hover:bg-[#b85f42]"
-            >
-                Contact
-            </a>
+
+            <div class="mx-auto mt-8 max-w-xl bg-white p-6 text-[#4d5355]">
+                <div aria-live="polite">
+                    <p class="text-4xl font-bold text-[#373f43]"><span data-rating-value>4.0</span> / 5</p>
+                    <div class="mt-2 flex justify-center gap-1" data-rating-stars aria-label="Beoordeling: 4 van 5 sterren">
+                        <button type="button" data-rating-star="1" aria-label="Geef 1 ster" class="text-3xl text-[#3194d0]">&#9733;</button>
+                        <button type="button" data-rating-star="2" aria-label="Geef 2 sterren" class="text-3xl text-[#3194d0]">&#9733;</button>
+                        <button type="button" data-rating-star="3" aria-label="Geef 3 sterren" class="text-3xl text-[#3194d0]">&#9733;</button>
+                        <button type="button" data-rating-star="4" aria-label="Geef 4 sterren" class="text-3xl text-[#3194d0]">&#9733;</button>
+                        <button type="button" data-rating-star="5" aria-label="Geef 5 sterren" class="text-3xl text-[#d9d2c8]">&#9733;</button>
+                    </div>
+                    <p class="mt-2 text-sm text-[#6a7071]"><span data-rating-votes>40</span> stemmen</p>
+                </div>
+
+                <form class="mt-8 space-y-4 text-left" data-review-form>
+                    <div>
+                        <label for="review-naam" class="mb-2 block text-sm font-bold text-[#373f43]">Naam *</label>
+                        <input id="review-naam" name="naam" type="text" required class="w-full border border-[#d9d2c8] bg-[#fdfcf9] px-4 py-3 outline-none focus:border-[#3194d0]">
+                    </div>
+                    <div>
+                        <label for="review-bericht" class="mb-2 block text-sm font-bold text-[#373f43]">Bericht *</label>
+                        <textarea id="review-bericht" name="bericht" rows="4" required class="w-full border border-[#d9d2c8] bg-[#fdfcf9] px-4 py-3 outline-none focus:border-[#3194d0]"></textarea>
+                    </div>
+                    <button type="submit" class="bg-[#3194d0] px-7 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-[#2479a8]">
+                        Reactie plaatsen
+                    </button>
+                    <p class="text-sm text-[#6a7071]" data-review-status aria-live="polite"></p>
+                </form>
+
+                <div class="mt-8 border-t border-[#e5dfd5] pt-6 text-left">
+                    <h3 class="text-xl font-bold text-[#373f43]">Reacties (<span data-review-count>0</span>)</h3>
+                    <div class="mt-4 space-y-3" data-review-list>
+                        <p class="text-sm text-[#6a7071]" data-no-reviews>Nog geen reacties geplaatst.</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
