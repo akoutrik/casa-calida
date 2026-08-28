@@ -1,44 +1,38 @@
-document.querySelectorAll('[data-carousel]').forEach((carousel) => {
-    const slides = [...carousel.querySelectorAll('[data-slide]')];
-    const dots = [...carousel.querySelectorAll('[data-carousel-dot]')];
+document.querySelectorAll('[data-hero-carousel]').forEach((carousel) => {
+    const slides = [...carousel.querySelectorAll('[data-hero-slide]')];
     let current = 0;
     let timer;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const showSlide = (index) => {
         current = (index + slides.length) % slides.length;
         slides.forEach((slide, slideIndex) => {
-            slide.classList.toggle('opacity-100', slideIndex === current);
-            slide.classList.toggle('opacity-0', slideIndex !== current);
+            slide.classList.toggle('is-active', slideIndex === current);
             slide.setAttribute('aria-hidden', slideIndex === current ? 'false' : 'true');
-        });
-        dots.forEach((dot, dotIndex) => {
-            dot.setAttribute('aria-selected', dotIndex === current ? 'true' : 'false');
-            dot.classList.toggle('bg-[#e4a17d]', dotIndex === current);
-            dot.classList.toggle('bg-white/60', dotIndex !== current);
         });
     };
 
+    const stopAutoplay = () => window.clearInterval(timer);
     const restartAutoplay = () => {
+        if (reducedMotion) return;
         window.clearInterval(timer);
         timer = window.setInterval(() => showSlide(current + 1), 6000);
     };
 
-    carousel.querySelector('[data-carousel-prev]')?.addEventListener('click', () => {
+    carousel.querySelector('[data-hero-prev]')?.addEventListener('click', () => {
         showSlide(current - 1);
         restartAutoplay();
     });
 
-    carousel.querySelector('[data-carousel-next]')?.addEventListener('click', () => {
+    carousel.querySelector('[data-hero-next]')?.addEventListener('click', () => {
         showSlide(current + 1);
         restartAutoplay();
     });
 
-    dots.forEach((dot) => {
-        dot.addEventListener('click', () => {
-            showSlide(Number(dot.dataset.carouselDot));
-            restartAutoplay();
-        });
-    });
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', restartAutoplay);
+    carousel.addEventListener('focusin', stopAutoplay);
+    carousel.addEventListener('focusout', restartAutoplay);
 
     carousel.addEventListener('keydown', (event) => {
         if (event.key === 'ArrowLeft') showSlide(current - 1);
@@ -46,7 +40,19 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') restartAutoplay();
     });
 
-    carousel.tabIndex = 0;
     showSlide(0);
     restartAutoplay();
+});
+
+const menuToggle = document.querySelector('[data-menu-toggle]');
+const mobileMenu = document.querySelector('#mobile-menu');
+menuToggle?.addEventListener('click', () => {
+    const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Open navigatiemenu' : 'Sluit navigatiemenu');
+    mobileMenu?.toggleAttribute('hidden', isOpen);
+});
+
+document.querySelector('[data-hero-scroll]')?.addEventListener('click', () => {
+    document.querySelector('#over')?.scrollIntoView({ behavior: 'smooth' });
 });

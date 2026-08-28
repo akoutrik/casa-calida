@@ -27,16 +27,66 @@
         h1, h2, h3, .site-title, nav, .button {
             font-family: "Maven Pro", sans-serif;
         }
+
+        .hero-shell {
+            min-height: 100svh;
+        }
+
+        .hero-slide {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 700ms ease;
+        }
+
+        .hero-slide.is-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-slide {
+                transition: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .mobile-menu[hidden] {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-    <header class="bg-[#373f43] text-white">
-        <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-5">
+    <main>
+    <section class="hero-shell relative overflow-hidden rounded-b-[1.25rem] border-2 border-[#373f43] bg-[#373f43] text-white" data-hero-carousel aria-roledescription="carousel" aria-label="Casa Calida foto's">
+        <div class="absolute inset-0">
+            <div class="hero-slide is-active absolute inset-0" data-hero-slide aria-hidden="false" role="group" aria-roledescription="slide" aria-label="Dia 1 van 3">
+                <img src="images/slide-1-dakterras-zwembad.jpeg" alt="Dakterras met privézwembad van Casa Calida" class="h-full w-full object-cover" fetchpriority="high">
+                <div class="absolute inset-0 bg-[#12202b]/45"></div>
+                <p class="absolute inset-x-5 top-1/2 -translate-y-1/2 text-center text-5xl font-light tracking-wide text-white md:text-8xl">Een plek om thuis te komen</p>
+            </div>
+            <div class="hero-slide absolute inset-0" data-hero-slide aria-hidden="true" role="group" aria-roledescription="slide" aria-label="Dia 2 van 3">
+                <img src="images/slide-2-spaans-genieten.jpeg" alt="Palmbomen aan het strand aan de Costa Calida" class="h-full w-full object-cover">
+                <div class="absolute inset-0 bg-[#12202b]/35"></div>
+                <p class="absolute inset-x-5 top-1/2 -translate-y-1/2 text-center text-5xl font-light tracking-wide text-white md:text-8xl">Spaans genieten</p>
+            </div>
+            <div class="hero-slide absolute inset-0" data-hero-slide aria-hidden="true" role="group" aria-roledescription="slide" aria-label="Dia 3 van 3">
+                <img src="images/slide-3-duinlandschap.jpeg" alt="Duinlandschap aan zee aan de Costa Calida" class="h-full w-full object-cover">
+                <div class="absolute inset-0 bg-[#12202b]/30"></div>
+                <p class="absolute inset-x-5 top-1/2 -translate-y-1/2 text-center text-5xl font-light tracking-wide text-white md:text-8xl">De Costa Calida ontdekken</p>
+            </div>
+        </div>
+
+        <header class="relative z-10">
+        <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-7">
             <a href="index.html" class="site-title text-lg font-bold uppercase tracking-[0.18em]">
                 Casa Calida of Casa Bo y Puck
             </a>
-            <nav aria-label="Hoofdnavigatie" class="flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.14em]">
-                <a href="index.html" class="text-[#e4a17d]">Home</a>
+            <button type="button" class="md:hidden" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigatiemenu">
+                <span class="text-3xl" aria-hidden="true">&#9776;</span>
+            </button>
+            <nav aria-label="Hoofdnavigatie" class="hidden flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.14em] md:flex">
+                <a href="index.html" class="rounded-full bg-white px-5 py-3 text-[#c96d4b]">Home</a>
                 <a href="over-ons.html" class="transition hover:text-[#e4a17d]">Over ons</a>
                 <a href="penthouse.html" class="transition hover:text-[#e4a17d]">Penthouse</a>
                 <a href="pilar.html" class="transition hover:text-[#e4a17d]">Pilar</a>
@@ -47,19 +97,25 @@
                 <a href="contact.html" class="transition hover:text-[#e4a17d]">Contact</a>
             </nav>
         </div>
-    </header>
+        <nav id="mobile-menu" class="mobile-menu relative z-20 border-t border-white/20 bg-[#373f43]/95 px-5 py-5 md:hidden" hidden aria-label="Mobiele navigatie">
+            <div class="grid gap-4 text-sm font-bold uppercase tracking-[0.14em]">
+                <a href="index.html" class="text-[#e4a17d]">Home</a>
+                <a href="over-ons.html">Over ons</a>
+                <a href="penthouse.html">Penthouse</a>
+                <a href="pilar.html">Pilar</a>
+                <a href="galerij.html">Galerij</a>
+                <a href="contact.html">Contact</a>
+                <a href="omgeving.html">Omgeving</a>
+                <a href="onze-tips.html">Onze tips</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </nav>
+        </header>
 
-    <main>
-        <section class="border-b border-[#e5dfd5] bg-[#eee9e0] px-5 py-20 text-center md:py-28">
-            <p class="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-[#c96d4b]">Casa Calida</p>
-            <h1 class="text-5xl leading-tight text-[#373f43] md:text-7xl">Welkom bij Casa Calida</h1>
-            <p class="mx-auto mt-6 max-w-2xl text-xl leading-8 text-[#6a7071]">
-                Een luxe penthouse met privézwembad voor een heerlijke Spaanse vakantie.
-            </p>
-            <a href="#over" class="button mt-8 inline-block bg-[#c96d4b] px-7 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-[#b85f42]">
-                Ontdek Casa Calida
-            </a>
-        </section>
+        <button type="button" data-hero-prev aria-label="Vorige foto" class="absolute left-4 top-1/2 z-10 -translate-y-1/2 text-5xl font-light text-white hover:text-[#e4a17d]">&#8249;</button>
+        <button type="button" data-hero-next aria-label="Volgende foto" class="absolute right-4 top-1/2 z-10 -translate-y-1/2 text-5xl font-light text-white hover:text-[#e4a17d]">&#8250;</button>
+        <button type="button" data-hero-scroll aria-label="Scroll naar de inhoud" class="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 text-5xl font-light text-white hover:text-[#e4a17d]">&#8964;</button>
+    </section>
 
         <section id="over" class="mx-auto max-w-6xl px-5 py-16 md:py-24">
             <div class="mx-auto max-w-3xl text-center">
@@ -86,22 +142,6 @@
                 </article>
             </div>
 
-            <div class="relative mt-12 overflow-hidden bg-[#373f43]" data-carousel aria-label="Foto's van Casa Calida">
-                <div class="relative aspect-[16/8] min-h-[240px]">
-                    <img src="images/over-ons-alex-en-helene.webp" alt="Alex en Helene bij Casa Calida" class="carousel-slide absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-500" data-slide>
-                    <img src="images/over-ons-san-perdo-salinas.webp" alt="San Pedro del Pinatar en omgeving" class="carousel-slide absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500" data-slide>
-                    <img src="images/penthouse-5812.jpg" alt="Interieur van het penthouse" class="carousel-slide absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500" data-slide>
-                    <img src="images/terras.jpg" alt="Dakterras van Casa Calida" class="carousel-slide absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500" data-slide>
-                </div>
-                <button type="button" data-carousel-prev aria-label="Vorige foto" class="absolute left-4 top-1/2 -translate-y-1/2 bg-[#373f43]/85 px-4 py-3 text-xl text-white hover:bg-[#c96d4b]">&#8249;</button>
-                <button type="button" data-carousel-next aria-label="Volgende foto" class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#373f43]/85 px-4 py-3 text-xl text-white hover:bg-[#c96d4b]">&#8250;</button>
-                <div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2" role="tablist" aria-label="Kies een foto">
-                    <button type="button" data-carousel-dot="0" aria-label="Toon eerste foto" aria-selected="true" class="h-2.5 w-8 bg-[#e4a17d]"></button>
-                    <button type="button" data-carousel-dot="1" aria-label="Toon tweede foto" aria-selected="false" class="h-2.5 w-8 bg-white/60"></button>
-                    <button type="button" data-carousel-dot="2" aria-label="Toon derde foto" aria-selected="false" class="h-2.5 w-8 bg-white/60"></button>
-                    <button type="button" data-carousel-dot="3" aria-label="Toon vierde foto" aria-selected="false" class="h-2.5 w-8 bg-white/60"></button>
-                </div>
-            </div>
         </section>
 
         <section id="tarieven" class="bg-[#373f43] px-5 py-16 text-center text-white">
