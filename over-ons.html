@@ -28,6 +28,13 @@
         h1, h2, h3, .site-title, nav, .site-sans {
             font-family: "Maven Pro", sans-serif;
         }
+
+        .rating-star-half {
+            background: linear-gradient(90deg, #3194d0 50%, #d9d2c8 50%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
     </style>
 </head>
 <body>
@@ -38,7 +45,7 @@
             </a>
             <nav aria-label="Hoofdnavigatie" class="flex flex-wrap gap-x-5 gap-y-2 text-xs font-normal uppercase tracking-[0.14em]">
                 <a href="index.html" class="transition hover:text-[#e4a17d]">Home</a>
-                <a href="over-ons.html" aria-current="page" class="text-[#e4a17d]">Over ons</a>
+                <a href="over-ons.html" aria-current="page" class="text-[#3194d0]">Over ons</a>
                 <a href="penthouse.html" class="transition hover:text-[#e4a17d]">Penthouse</a>
                 <a href="pilar.html" class="transition hover:text-[#e4a17d]">Pilar</a>
                 <a href="galerij.html" class="transition hover:text-[#e4a17d]">Galerij</a>
@@ -153,13 +160,13 @@
 
             <div class="mx-auto mt-8 max-w-xl bg-white p-6 text-[#4d5355]">
                 <div aria-live="polite">
-                    <p class="text-4xl font-bold text-[#373f43]"><span data-rating-value>4.0</span> / 5</p>
-                    <div class="mt-2 flex justify-center gap-1" data-rating-stars aria-label="Beoordeling: 4 van 5 sterren">
+                    <p class="text-4xl font-bold text-[#373f43]"><span data-rating-value>4.5</span> / 5</p>
+                    <div class="mt-2 flex justify-center gap-1" data-rating-stars aria-label="Beoordeling: 4.5 van 5 sterren">
                         <button type="button" data-rating-star="1" aria-label="Geef 1 ster" class="text-3xl text-[#3194d0]">&#9733;</button>
                         <button type="button" data-rating-star="2" aria-label="Geef 2 sterren" class="text-3xl text-[#3194d0]">&#9733;</button>
                         <button type="button" data-rating-star="3" aria-label="Geef 3 sterren" class="text-3xl text-[#3194d0]">&#9733;</button>
                         <button type="button" data-rating-star="4" aria-label="Geef 4 sterren" class="text-3xl text-[#3194d0]">&#9733;</button>
-                        <button type="button" data-rating-star="5" aria-label="Geef 5 sterren" class="text-3xl text-[#d9d2c8]">&#9733;</button>
+                        <button type="button" data-rating-star="5" aria-label="Geef 5 sterren" class="rating-star-half text-3xl">&#9733;</button>
                     </div>
                     <p class="mt-2 text-sm text-[#6a7071]"><span data-rating-votes>40</span> stemmen</p>
                 </div>
@@ -179,12 +186,6 @@
                     <p class="text-sm text-[#6a7071]" data-review-status aria-live="polite"></p>
                 </form>
 
-                <div class="mt-8 border-t border-[#e5dfd5] pt-6 text-left">
-                    <h3 class="text-xl font-bold text-[#373f43]">Reacties (<span data-review-count>0</span>)</h3>
-                    <div class="mt-4 space-y-3" data-review-list>
-                        <p class="text-sm text-[#6a7071]" data-no-reviews>Nog geen reacties geplaatst.</p>
-                    </div>
-                </div>
             </div>
         </section>
     </main>

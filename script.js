@@ -58,14 +58,12 @@ document.querySelector('[data-hero-scroll]')?.addEventListener('click', () => {
 });
 
 const reviewForm = document.querySelector('[data-review-form]');
-const reviewList = document.querySelector('[data-review-list]');
-const reviewCount = document.querySelector('[data-review-count]');
 const reviewStatus = document.querySelector('[data-review-status]');
 const ratingValue = document.querySelector('[data-rating-value]');
 const ratingVotes = document.querySelector('[data-rating-votes]');
 const ratingStars = [...document.querySelectorAll('[data-rating-star]')];
-const reviewStorageKey = 'casa-calida-reviews';
 const ratingStorageKey = 'casa-calida-rating';
+const ratingSessionKey = 'casa-calida-rating-submitted';
 
 const readStoredItems = (key, fallback) => {
     try {
@@ -76,52 +74,39 @@ const readStoredItems = (key, fallback) => {
     }
 };
 
-const reviews = readStoredItems(reviewStorageKey, []);
-const rating = readStoredItems(ratingStorageKey, { total: 160, votes: 40 });
+const rating = readStoredItems(ratingStorageKey, { total: 180, votes: 40 });
+const hasRatedThisSession = window.sessionStorage.getItem(ratingSessionKey) === 'true';
 
 const renderRating = () => {
     const average = rating.votes ? rating.total / rating.votes : 0;
     ratingValue.textContent = average.toFixed(1);
     ratingVotes.textContent = rating.votes;
     ratingStars.forEach((star) => {
-        const isActive = Number(star.dataset.ratingStar) <= Math.round(average);
-        star.classList.toggle('text-[#3194d0]', isActive);
-        star.classList.toggle('text-[#d9d2c8]', !isActive);
+        const starNumber = Number(star.dataset.ratingStar);
+        const isFull = starNumber <= Math.floor(average);
+        const isHalf = !isFull && starNumber === Math.ceil(average) && average % 1 >= 0.5;
+        star.classList.toggle('text-[#3194d0]', isFull);
+        star.classList.toggle('text-[#d9d2c8]', !isFull && !isHalf);
+        star.classList.toggle('rating-star-half', isHalf);
     });
     ratingStars[0]?.parentElement?.setAttribute('aria-label', `Beoordeling: ${average.toFixed(1)} van 5 sterren`);
 };
 
-const renderReviews = () => {
-    reviewCount.textContent = reviews.length;
-    reviewList.replaceChildren();
-    if (!reviews.length) {
-        const emptyState = document.createElement('p');
-        emptyState.className = 'text-sm text-[#6a7071]';
-        emptyState.textContent = 'Nog geen reacties geplaatst.';
-        reviewList.append(emptyState);
-        return;
-    }
-
-    reviews.forEach((review) => {
-        const item = document.createElement('article');
-        item.className = 'border-l-2 border-[#3194d0] pl-4';
-        const author = document.createElement('h4');
-        author.className = 'font-bold text-[#373f43]';
-        author.textContent = review.name;
-        const message = document.createElement('p');
-        message.className = 'mt-1 text-sm leading-6 text-[#6a7071]';
-        message.textContent = review.message;
-        item.append(author, message);
-        reviewList.append(item);
-    });
-};
-
 ratingStars.forEach((star) => {
     star.addEventListener('click', () => {
+        if (window.sessionStorage.getItem(ratingSessionKey) === 'true') {
+            reviewStatus.textContent = 'Je hebt in deze browsersessie al gestemd.';
+            return;
+        }
         const score = Number(star.dataset.ratingStar);
         rating.total += score;
         rating.votes += 1;
         window.localStorage.setItem(ratingStorageKey, JSON.stringify(rating));
+        window.sessionStorage.setItem(ratingSessionKey, 'true');
+        ratingStars.forEach((ratingStar) => {
+            ratingStar.disabled = true;
+            ratingStar.setAttribute('aria-disabled', 'true');
+        });
         renderRating();
     });
 });
@@ -133,14 +118,16 @@ reviewForm?.addEventListener('submit', (event) => {
     const message = String(formData.get('bericht') || '').trim();
     if (!name || !message) return;
 
-    reviews.push({ name, message });
-    window.localStorage.setItem(reviewStorageKey, JSON.stringify(reviews));
     reviewForm.reset();
-    reviewStatus.textContent = 'Bedankt voor je reactie.';
-    renderReviews();
+    reviewStatus.textContent = 'Bedankt voor je reactie. Reacties worden zichtbaar zodra de backend is gekoppeld.';
 });
 
 if (reviewForm) {
     renderRating();
-    renderReviews();
+    if (hasRatedThisSession) {
+        ratingStars.forEach((star) => {
+            star.disabled = true;
+            star.setAttribute('aria-disabled', 'true');
+        });
+    }
 }
