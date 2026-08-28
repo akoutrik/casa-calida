@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neem contact op over een verblijf in Casa Calida in Pilar de la Horadada.">
+    <title>Contact | Casa Calida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Maven+Pro:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --charcoal: #373f43;
+            --terracotta: #c96d4b;
+            --sand: #f7f5f0;
+            --ink: #4d5355;
+        }
+
+        body {
+            background: var(--sand);
+            color: var(--ink);
+            font-family: "Lato", sans-serif;
+        }
+
+        h1, h2, h3, .site-title, nav, .button {
+            font-family: "Maven Pro", sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-[#373f43] text-white">
+        <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-5">
+            <a href="index.html" class="site-title text-lg font-bold uppercase tracking-[0.18em]">
+                Casa Calida of Casa Bo y Puck
+            </a>
+            <nav aria-label="Hoofdnavigatie" class="flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.14em]">
+                <a href="index.html" class="transition hover:text-[#e4a17d]">Home</a>
+                <a href="over-ons.html" class="transition hover:text-[#e4a17d]">Over ons</a>
+                <a href="index.html#over" class="transition hover:text-[#e4a17d]">Penthouse</a>
+                <a href="contact.html" aria-current="page" class="text-[#e4a17d]">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="border-b border-[#e5dfd5] bg-[#eee9e0] px-5 py-20 text-center md:py-28">
+            <p class="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-[#c96d4b]">Casa Calida</p>
+            <h1 class="text-5xl leading-tight text-[#373f43] md:text-7xl">Contact</h1>
+            <p class="mx-auto mt-6 max-w-2xl text-xl italic leading-8 text-[#6a7071]">
+                Vertel ons meer over je plannen voor een verblijf in Spanje.
+            </p>
+        </section>
+
+        <section class="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-2 md:py-24">
+            <div>
+                <h2 class="text-3xl font-bold text-[#373f43]">Locatie</h2>
+                <div class="mt-6 space-y-2 text-lg leading-8">
+                    <p class="font-bold text-[#373f43]">Casa Calida</p>
+                    <p>We noemen het ook wel Casa Bo y Puck.</p>
+                    <address class="not-italic">
+                        C/ Los Infantes, 34C<br>
+                        03190 Pilar de la Horadada - Alicante<br>
+                        Spain
+                    </address>
+                </div>
+                <a
+                    class="button mt-8 inline-block bg-[#c96d4b] px-7 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-[#b85f42]"
+                    href="https://www.google.com/maps/search/?api=1&query=C%2F%20Los%20Infantes%2C%2034C%2C%2003190%20Pilar%20de%20la%20Horadada"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Bekijk locatie
+                </a>
+            </div>
+
+            <div class="bg-white p-8 shadow-sm md:p-10">
+                <h2 class="text-3xl font-bold text-[#373f43]">Vertel ons meer!</h2>
+                <p class="mt-4 text-lg leading-8">
+                    Stuur ons je bericht voor informatie over Casa Calida.
+                </p>
+                <form class="mt-8 space-y-5" action="mailto:akoutrik@gmail.com" method="post" enctype="text/plain">
+                    <div>
+                        <label for="naam" class="mb-2 block text-sm font-bold text-[#373f43]">Naam *</label>
+                        <input id="naam" name="naam" type="text" required class="w-full border border-[#d9d2c8] bg-[#fdfcf9] px-4 py-3 outline-none focus:border-[#c96d4b]">
+                    </div>
+                    <div>
+                        <label for="email" class="mb-2 block text-sm font-bold text-[#373f43]">E-mailadres *</label>
+                        <input id="email" name="email" type="email" required class="w-full border border-[#d9d2c8] bg-[#fdfcf9] px-4 py-3 outline-none focus:border-[#c96d4b]">
+                    </div>
+                    <div>
+                        <label for="bericht" class="mb-2 block text-sm font-bold text-[#373f43]">Bericht *</label>
+                        <textarea id="bericht" name="bericht" rows="6" required class="w-full border border-[#d9d2c8] bg-[#fdfcf9] px-4 py-3 outline-none focus:border-[#c96d4b]"></textarea>
+                    </div>
+                    <button type="submit" class="button bg-[#c96d4b] px-7 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-[#b85f42]">
+                        Verzenden
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#2d3437] px-5 py-7 text-center text-xs uppercase tracking-[0.12em] text-[#c9cdcd]">
+        &copy; 2026 Casa Calida, Casa Bo y Puck
+    </footer>
+</body>
+</html>
